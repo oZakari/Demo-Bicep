@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "actionGroups_SWIDBA_name": {
+            "value": null
+        },
+        "actionGroups_function_app_name": {
+            "value": null
+        },
+        "servers_mfgt_sql_server_dev001_name": {
+            "value": null
+        },
+        "metricAlerts_Connection_failure_name": {
+            "value": null
+        },
+        "serverfarms_ASP_mfgtdatatransfer_b74c_name": {
+            "value": null
+        },
+        "sites_mfgt_func_app_unzip_blob_dev001_name": {
+            "value": null
+        },
+        "storageAccounts_sqlvaszrcuj3qy5jh2_name": {
+            "value": null
+        },
+        "storageAccounts_mfgt4storage4dev001_name": {
+            "value": null
+        },
+        "metricAlerts_Function_app___Data_in_name": {
+            "value": null
+        },
+        "components_mfgt_func_app_unzip_blob_dev001_name": {
+            "value": null
+        },
+        "privateEndpoints_mfgt4storageprivateendpoint_name": {
+            "value": null
+        },
+        "privateDnsZones_privatelink_blob_core_windows_net_name": {
+            "value": null
+        },
+        "actionGroups_Application_Insights_Smart_Detection_name": {
+            "value": null
+        },
+        "scheduledqueryrules_Failed_operations_in_function_app_name": {
+            "value": null
+        },
+        "networkInterfaces_mfgt4storageprivateendpoint_nic_c46a2cdf_5efc_4ec4_b454_565a53c8d6bf_name": {
+            "value": null
+        },
+        "workspaces_DefaultWorkspace_38fef25a_a926_4719_8c80_de78ac6df0f7_WUS2_externalid": {
+            "value": null
+        },
+        "virtualNetworks_AZUSW2_NVN_MXJBL_VNET01_externalid": {
+            "value": null
+        },
+        "privateEndpoints_mfgtdevdbserverPrivateEndpoint_externalid": {
+            "value": null
+        }
+    }
+}
