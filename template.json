@@ -11,7 +11,7 @@
             "type": "String"
         },
         "servers_mfgt_sql_server_dev001_name": {
-            "defaultValue": "mfgt-sql-server-dev001",
+            "defaultValue": "mfgt-sql-server-dev002",
             "type": "String"
         },
         "metricAlerts_Connection_failure_name": {
@@ -27,11 +27,11 @@
             "type": "String"
         },
         "storageAccounts_sqlvaszrcuj3qy5jh2_name": {
-            "defaultValue": "sqlvaszrcuj3qy5jh2",
+            "defaultValue": "sqlvaszrcuj3qy5jh22",
             "type": "String"
         },
         "storageAccounts_mfgt4storage4dev001_name": {
-            "defaultValue": "mfgt4storage4dev001",
+            "defaultValue": "mfgt4storage4dev002",
             "type": "String"
         },
         "metricAlerts_Function_app___Data_in_name": {
@@ -63,16 +63,16 @@
             "type": "String"
         },
         "workspaces_DefaultWorkspace_38fef25a_a926_4719_8c80_de78ac6df0f7_WUS2_externalid": {
-            "defaultValue": "/subscriptions/38fef25a-a926-4719-8c80-de78ac6df0f7/resourceGroups/DefaultResourceGroup-WUS2/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-38fef25a-a926-4719-8c80-de78ac6df0f7-WUS2",
+            "defaultValue": "/subscriptions/9307b47c-4f32-4c6b-84fe-1a50cb29107f/resourcegroups/sierrawirelesspoc/providers/microsoft.operationalinsights/workspaces/sierrawireless-loganalytics",
             "type": "String"
         },
         "virtualNetworks_AZUSW2_NVN_MXJBL_VNET01_externalid": {
-            "defaultValue": "/subscriptions/38fef25a-a926-4719-8c80-de78ac6df0f7/resourceGroups/AZUSW2-NRG-MXJBL-VNET/providers/Microsoft.Network/virtualNetworks/AZUSW2-NVN-MXJBL-VNET01",
+            "defaultValue": "/subscriptions/9307b47c-4f32-4c6b-84fe-1a50cb29107f/resourceGroups/SierraWirelessPoC/providers/Microsoft.Network/virtualNetworks/SierraWireless-VNet",
             "type": "String"
         },
-        "privateEndpoints_mfgtdevdbserverPrivateEndpoint_externalid": {
-            "defaultValue": "/subscriptions/38fef25a-a926-4719-8c80-de78ac6df0f7/resourceGroups/AZUSW2-NRG-MXJBL-VNET/providers/Microsoft.Network/privateEndpoints/mfgtdevdbserverPrivateEndpoint",
-            "type": "String"
+        "subnetName": {
+            "defaultValue": "AZUSW2-NVM-MXJBL-Subnet01",
+            "type": "string"
         }
     },
     "variables": {},
@@ -195,7 +195,7 @@
                             "privateIPAddress": "10.107.141.5",
                             "privateIPAllocationMethod": "Dynamic",
                             "subnet": {
-                                "id": "[concat(parameters('virtualNetworks_AZUSW2_NVN_MXJBL_VNET01_externalid'), '/subnets/AZUSW2-NVM-MXJBL-Subnet01')]"
+                                "id": "[concat(parameters('virtualNetworks_AZUSW2_NVN_MXJBL_VNET01_externalid'), '/', parameters('subnetName'))]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
@@ -232,6 +232,7 @@
             "kind": "v12.0",
             "properties": {
                 "administratorLogin": "factorytest",
+                "administratorLoginPassword": "Testing123!@#",
                 "version": "12.0",
                 "minimalTlsVersion": "1.2",
                 "publicNetworkAccess": "Enabled",
@@ -684,9 +685,9 @@
             }
         },
         {
-            "type": "Microsoft.Network/privateDnsZones/A",
+            "type": "Microsoft.Network/privateDnsZones/SOA",
             "apiVersion": "2018-09-01",
-            "name": "[concat(parameters('privateDnsZones_privatelink_blob_core_windows_net_name'), '/mfgt4storage4dev001')]",
+            "name": "[concat(parameters('privateDnsZones_privatelink_blob_core_windows_net_name'), '/', parameters('storageAccounts_mfgt4storage4dev001_name'))]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_blob_core_windows_net_name'))]"
             ],
@@ -764,7 +765,7 @@
                 ],
                 "manualPrivateLinkServiceConnections": [],
                 "subnet": {
-                    "id": "[concat(parameters('virtualNetworks_AZUSW2_NVN_MXJBL_VNET01_externalid'), '/subnets/AZUSW2-NVM-MXJBL-Subnet01')]"
+                    "id": "[concat(parameters('virtualNetworks_AZUSW2_NVN_MXJBL_VNET01_externalid'), '/', parameters('subnetName'))]"
                 },
                 "customDnsConfigs": []
             }
@@ -852,7 +853,7 @@
                 ],
                 "isAzureMonitorTargetEnabled": true,
                 "state": "Enabled",
-                "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000"
+                "storageAccountSubscriptionId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
             }
         },
         {
@@ -878,7 +879,7 @@
                 "licenseType": "LicenseIncluded",
                 "readScale": "Disabled",
                 "requestedBackupStorageRedundancy": "Geo",
-                "maintenanceConfigurationId": "/subscriptions/38fef25a-a926-4719-8c80-de78ac6df0f7/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default",
+                "maintenanceConfigurationId": "/subscriptions/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default",
                 "isLedgerOn": false
             }
         },
@@ -907,7 +908,7 @@
                 "isStorageSecondaryKeyInUse": false,
                 "isAzureMonitorTargetEnabled": false,
                 "state": "Disabled",
-                "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000"
+                "storageAccountSubscriptionId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
             }
         },
         {
@@ -923,7 +924,7 @@
                 "isStorageSecondaryKeyInUse": false,
                 "isAzureMonitorTargetEnabled": false,
                 "state": "Disabled",
-                "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000"
+                "storageAccountSubscriptionId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
             }
         },
         {
@@ -1001,7 +1002,7 @@
             "properties": {
                 "isAzureMonitorTargetEnabled": true,
                 "state": "Disabled",
-                "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000"
+                "storageAccountSubscriptionId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
             }
         },
         {
@@ -1034,7 +1035,7 @@
                 ],
                 "isAzureMonitorTargetEnabled": true,
                 "state": "Enabled",
-                "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000"
+                "storageAccountSubscriptionId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
             }
         },
         {
@@ -1116,15 +1117,7 @@
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_mfgt_sql_server_dev001_name'))]"
             ],
-            "properties": {
-                "privateEndpoint": {
-                    "id": "[parameters('privateEndpoints_mfgtdevdbserverPrivateEndpoint_externalid')]"
-                },
-                "privateLinkServiceConnectionState": {
-                    "status": "Approved",
-                    "description": "Auto-approved"
-                }
-            }
+            "properties": {}
         },
         {
             "type": "Microsoft.Sql/servers/securityAlertPolicies",
@@ -1879,7 +1872,7 @@
                 "isStorageSecondaryKeyInUse": false,
                 "isAzureMonitorTargetEnabled": false,
                 "state": "Disabled",
-                "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000"
+                "storageAccountSubscriptionId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
             }
         },
         {
@@ -1924,7 +1917,7 @@
                 "isStorageSecondaryKeyInUse": false,
                 "isAzureMonitorTargetEnabled": false,
                 "state": "Disabled",
-                "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000"
+                "storageAccountSubscriptionId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
             }
         },
         {
