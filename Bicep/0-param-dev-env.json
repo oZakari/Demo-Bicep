@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stage": {
+            "value": {
+                "SA": 1,
+                "VN": 1
+            }
+        },
+        "DeploymentInfo": {
+            "value": {
+                "storageInfo": [
+                    {
+                        "namePrefix": "mfgt4storage",
+                        "nameSuffix": "001",
+                        "publicAccess": false,
+                        "skuName": "Standard_LRS"
+                    }
+                ],
+                "virtualNetworkInfo": [
+                    {
+                        "namePrefix": "mfgt4storage",
+                        "nameSuffix": "001",
+                        "subnetOne": "AZUSW2-NVM-MXJBL-Subnet01",
+                        "subnetTwo": "AZUSW2-NVM-MXJBL-Subnet02"
+                    }
+                ]
+            }
+        }
+    }
+}
