@@ -4,12 +4,22 @@
     "parameters": {
         "stage": {
             "value": {
+                "AG": 1,
                 "SA": 1,
-                "VN": 1
+                "VN": 1,
+                "AZSQL": 1
             }
         },
         "DeploymentInfo": {
             "value": {
+                "actionGroupInfo": [
+                    {
+                        "namePrefix": "mfgt4",
+                        "nameSuffix": "001",
+                        "commonAlertSchema": true
+                    }
+                    
+                ],
                 "storageInfo": [
                     {
                         "namePrefix": "mfgt4storage",
@@ -24,6 +34,14 @@
                         "nameSuffix": "001",
                         "subnetOne": "AZUSW2-NVM-MXJBL-Subnet01",
                         "subnetTwo": "AZUSW2-NVM-MXJBL-Subnet02"
+                    }
+                ],
+                "azsqlInfo": [
+                    {
+                        "namePrefix": "mfgt4storage",
+                        "nameSuffix": "001",
+                        "adminLogin": "SQLSA",
+                        "adminPw": "Testing1@1"
                     }
                 ]
             }
