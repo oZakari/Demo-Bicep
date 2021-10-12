@@ -1,6 +1,5 @@
 param storageInfo object
 
-
 resource SA 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: toLower('${storageInfo.namePrefix}sa${storageInfo.nameSuffix}')
   location: resourceGroup().location

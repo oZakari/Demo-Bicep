@@ -21,3 +21,9 @@ New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\SA.bi
 
 # Deploy Single layer, inner dev loop - VNET and subnets only
 New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\VN.bicep
+
+# Deploy Single layer, inner dev loop - Action Group only
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\AG.bicep
+
+# Deploy Single layer, inner dev loop - SQL Server only
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\AZSQL.bicep
