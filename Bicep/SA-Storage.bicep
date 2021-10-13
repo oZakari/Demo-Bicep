@@ -1,7 +1,10 @@
 param storageInfo object
+param global object
+
+var deployment = '${global.appName}${global.environment}'
 
 resource SA 'Microsoft.Storage/storageAccounts@2021-04-01' = {
-  name: toLower('${storageInfo.namePrefix}sa${storageInfo.nameSuffix}')
+  name: toLower('${deployment}${storageInfo.name}')
   location: resourceGroup().location
   sku: {
     name: storageInfo.skuName
@@ -37,7 +40,7 @@ resource SA 'Microsoft.Storage/storageAccounts@2021-04-01' = {
 }
 
 resource SABlobService 'Microsoft.Storage/storageAccounts/blobServices@2021-02-01' = {
-  name: '${toLower('${storageInfo.namePrefix}sa${storageInfo.nameSuffix}')}/default'
+  name: '${toLower('${deployment}${storageInfo.name}')}/default'
   properties: {
     isVersioningEnabled: (contains(storageInfo, 'blobVersioning') ? storageInfo.blobVersioning : bool('false'))
     changeFeed: {
