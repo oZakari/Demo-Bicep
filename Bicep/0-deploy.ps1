@@ -30,3 +30,6 @@ New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\NSG.b
 
 # Deploy Single layer, inner dev loop - SQL Server only
 New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\AZSQL.bicep
+
+# Deploy Single layer, inner dev loop - App Service Plan only
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\ASP.bicep

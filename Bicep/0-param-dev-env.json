@@ -8,7 +8,8 @@
                 "sa": 1,
                 "vn": 1,
                 "nsg": 1,
-                "azsql": 1
+                "azsql": 1,
+                "asp": 1
             }
         },
         "Global": {
@@ -67,6 +68,11 @@
                         "name": "azsql",
                         "adminLogin": "SQLSA",
                         "adminPw": "Testing1@1"
+                    }
+                ],
+                "appServicePlanInfo": [
+                    {
+                        "name": "asp"
                     }
                 ]
             }

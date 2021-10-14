@@ -46,3 +46,12 @@ module AZSQL 'AZSQL.bicep' = if (stage.azsql == 1) {
     global: global
   }
 }
+
+module ASP 'ASP.bicep' = if (stage.asp == 1) {
+  name: 'dp-asp'
+  params: {
+    deploymentInfo: deploymentInfo
+    stage: stage
+    global: global
+  }
+}
