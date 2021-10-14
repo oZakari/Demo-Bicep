@@ -14,13 +14,13 @@ resource VN 'Microsoft.Network/virtualNetworks@2021-02-01' = {
     }
     subnets: [
       {
-        name: 'virtualNetworkInfo.subnetOne'
+        name: virtualNetworkInfo.subnetOne
         properties: {
           addressPrefix: '10.10.1.0/24'
         }
       }
       {
-        name: 'virtualNetworkInfo.subnetTwo'
+        name: virtualNetworkInfo.subnetTwo
         properties: {
           addressPrefix: '10.10.2.0/24'
         }
