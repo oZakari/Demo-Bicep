@@ -1,11 +1,13 @@
 param deploymentInfo object
 param stage object
+param global object
 
 var azSqlInfo = deploymentInfo.azSqlInfo
 
-module SA 'AZSQL-SQL.bicep' = [for (azsql, index) in azSqlInfo: {
-  name: 'dp-azSqlDeploy-${(length(azSqlInfo))}'
+module AZSQL 'AZSQL-SQL.bicep' = [for (azsql, index) in azSqlInfo: {
+  name: 'dp-azsqldeploy-${azsql.name}'
   params: {
     azSqlInfo: azsql
+    global: global
   }
 }]

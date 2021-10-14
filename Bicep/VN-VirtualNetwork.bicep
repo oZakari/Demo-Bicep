@@ -1,7 +1,10 @@
 param virtualNetworkInfo object
+param global object
+
+var deployment = '${global.appName}-${global.environment}'
 
 resource VN 'Microsoft.Network/virtualNetworks@2021-02-01' = {
-  name: '${virtualNetworkInfo.namePrefix}-vnet-${virtualNetworkInfo.nameSuffix}'
+  name: toLower('${deployment}-${virtualNetworkInfo.name}')
   location: resourceGroup().location
   properties: {
     addressSpace: {

@@ -4,42 +4,67 @@
     "parameters": {
         "stage": {
             "value": {
-                "AG": 1,
-                "SA": 1,
-                "VN": 1,
-                "AZSQL": 1
+                "ag": 1,
+                "sa": 1,
+                "vn": 1,
+                "nsg": 1,
+                "azsql": 1
+            }
+        },
+        "Global": {
+            "value": {
+                "environment": "prod001",
+                "appName": "mfgt4"
             }
         },
         "DeploymentInfo": {
             "value": {
                 "actionGroupInfo": [
                     {
-                        "namePrefix": "mfgt4",
-                        "nameSuffix": "001",
-                        "commonAlertSchema": true
+                        "name": "DBA-Team",
+                        "emailReceivers": [
+                            {
+                                "name": "ag",
+                                "emailAddress": "lewang@sierrawireless.com",
+                                "useCommonAlertSchema": false
+                            }
+                        ],
+                        "armRoleReceivers": [
+                            {
+                                "name": "Monitoring Contributor",
+                                "roleId": "749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+                                "useCommonAlertSchema": false
+                            },
+                            {
+                                "name": "Monitoring Reader",
+                                "roleId": "43d0d8ad-25c7-4714-9337-8ba259a9fe05",
+                                "useCommonAlertSchema": false
+                            }
+                        ]
                     }
-                    
                 ],
                 "storageInfo": [
                     {
-                        "namePrefix": "mfgt4storage",
-                        "nameSuffix": "001",
+                        "name": "strg1",
                         "publicAccess": false,
                         "skuName": "Standard_LRS"
                     }
                 ],
                 "virtualNetworkInfo": [
                     {
-                        "namePrefix": "mfgt4storage",
-                        "nameSuffix": "001",
+                        "name": "vnet",
                         "subnetOne": "AZUSW2-NVM-MXJBL-Subnet01",
                         "subnetTwo": "AZUSW2-NVM-MXJBL-Subnet02"
                     }
                 ],
+                "networkSecurityGroupInfo": [
+                    {
+                        "name": "nsg"
+                    }
+                ],
                 "azsqlInfo": [
                     {
-                        "namePrefix": "mfgt4storage",
-                        "nameSuffix": "001",
+                        "name": "azsql",
                         "adminLogin": "SQLSA",
                         "adminPw": "Testing1@1"
                     }

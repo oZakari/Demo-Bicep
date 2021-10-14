@@ -2,10 +2,10 @@ param deploymentInfo object
 param stage object
 param global object
 
-var nsgInfo = deploymentInfo.vnInfo
+var networkSecurityGroupInfo = deploymentInfo.networkSecurityGroupInfo
 
-module NSG 'NSG-NSG.bicep' = [for (nsg, index) in nsgInfo: {
-  name: 'dp-nsgdeploy-${nsg.name}))}'
+module NSG 'NSG-NSG.bicep' = [for (nsg, index) in networkSecurityGroupInfo: {
+  name: 'dp-nsgdeploy-${nsg.name}'
   params: {
     networkSecurityGroupInfo: nsg
     global: global

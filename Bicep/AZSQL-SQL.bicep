@@ -1,7 +1,10 @@
 param azSqlInfo object
+param global object
+
+var deployment = '${global.appName}-${global.environment}'
 
 resource AZSQL 'Microsoft.Sql/servers@2021-02-01-preview' = {
-  name: toLower('${azSqlInfo.namePrefix}sa${azSqlInfo.nameSuffix}')
+  name: toLower('${deployment}-${azSqlInfo.name}')
   location: resourceGroup().location
   properties: {
     administratorLogin: azSqlInfo.adminLogin
