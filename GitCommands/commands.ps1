@@ -15,6 +15,11 @@ git push
 
 git push --set-upstream main dev
 
+#Push to dev
+git add . 
+git commit -m ""
+git push
+
 #Merge all commits
 git switch main 
 git pull
