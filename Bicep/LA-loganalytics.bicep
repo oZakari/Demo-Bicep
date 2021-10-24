@@ -1,13 +1,12 @@
-param logAnalyticsWorkspaceInfo object
+param logAnalyticsInfo object
 param global object
 
 var deployment = '${global.appName}-${global.environment}'
 
-resource workspaces_defaultworkspace_38fef25a_a926_4719_8c80_de78ac6df0f7_wus2_name_resource 'microsoft.operationalinsights/workspaces@2021-06-01' = {
-  name: toLower('${deployment}-${logAnalyticsWorkspaceInfo.name}')
-  location: 'West US 2'
+resource LogAnalytics 'microsoft.operationalinsights/workspaces@2021-06-01' = {
+  name: toLower('${deployment}-${logAnalyticsInfo.name}')
+  location: resourceGroup().location
   properties: {
-    provisioningState: 'Succeeded'
     sku: {
       name: 'PerGB2018'
     }
