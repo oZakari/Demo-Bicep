@@ -16,7 +16,7 @@
         },
         "Global": {
             "value": {
-                "environment": "dev001",
+                "environment": "prod001",
                 "appName": "mfgt4"
             }
         },
