@@ -3,7 +3,11 @@ param global object
 
 var deployment = '${global.appName}-${global.environment}'
 
-resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
+resource LA 'microsoft.operationalinsights/workspaces@2021-06-01' existing = {
+  name: applicationInsightsInfo.la
+}
+
+resource AI 'Microsoft.Insights/components@2020-02-02' = {
   name: toLower('${deployment}-${applicationInsightsInfo.name}')
   location: resourceGroup().location
   kind: 'web'
@@ -12,7 +16,7 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
     Flow_Type: 'Redfield'
     Request_Source: 'IbizaWebAppExtensionCreate'
     RetentionInDays: 90
-    WorkspaceResourceId: 
+    WorkspaceResourceId: LA.id
     IngestionMode: 'LogAnalytics'
     publicNetworkAccessForIngestion: 'Enabled'
     publicNetworkAccessForQuery: 'Enabled'

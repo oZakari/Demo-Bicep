@@ -33,3 +33,10 @@ New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\AZSQL
 
 # Deploy Single layer, inner dev loop - App Service Plan only
 New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\ASP.bicep
+
+# Deploy Single layer, inner dev loop - Log Analytics only
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\LA.bicep
+
+# Deploy Single layer, inner dev loop - App Insights only
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\AI.bicep
+

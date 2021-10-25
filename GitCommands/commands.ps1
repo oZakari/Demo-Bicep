@@ -4,7 +4,7 @@ git status
 
 git switch dev
 
-git switch master
+git switch main
 
 git branch -d dev
 git switch dev

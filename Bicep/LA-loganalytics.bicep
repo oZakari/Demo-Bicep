@@ -3,7 +3,7 @@ param global object
 
 var deployment = '${global.appName}-${global.environment}'
 
-resource LogAnalytics 'microsoft.operationalinsights/workspaces@2021-06-01' = {
+resource LA 'microsoft.operationalinsights/workspaces@2021-06-01' = {
   name: toLower('${deployment}-${logAnalyticsInfo.name}')
   location: resourceGroup().location
   properties: {

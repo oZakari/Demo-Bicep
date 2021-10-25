@@ -3,7 +3,7 @@ param global object
 
 var deployment = '${global.appName}-${global.environment}'
 
-resource networkSecurityGroup'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
+resource NSG 'Microsoft.Network/networkSecurityGroups@2021-03-01' = {
   name: toLower('${deployment}-${networkSecurityGroupInfo.name}')
   location: resourceGroup().location
   properties: {
