@@ -99,7 +99,9 @@
                 "azureFunctionInfo": [
                     {
                         "name": "af",
-                        "asp": "mfgt4-dev001-asp"
+                        "asp": "mfgt4-dev001-asp",
+                        "sa": "mfgt4dev001strg1" ,
+                        "ai": "mfgt4-dev001-ai"
                     }
                 ],
                 "logAnalyticsInfo": [

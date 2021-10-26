@@ -7,6 +7,14 @@ resource ASP 'Microsoft.Web/serverfarms@2021-02-01' existing = {
   name: azureFunctionInfo.asp
 }
 
+resource AI 'Microsoft.Insights/components@2020-02-02' existing = {
+  name: azureFunctionInfo.ai
+}
+
+resource SA 'Microsoft.Storage/storageAccounts@2021-06-01' existing = {
+  name: azureFunctionInfo.sa
+}
+
 resource AF 'Microsoft.Web/sites@2021-02-01' = {
   name: toLower('${deployment}-${azureFunctionInfo.name}')
   location: resourceGroup().location
@@ -18,6 +26,32 @@ resource AF 'Microsoft.Web/sites@2021-02-01' = {
     isXenon: false
     hyperV: false
     siteConfig: {
+      appSettings: [
+        {
+          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
+          value: AI.properties.InstrumentationKey
+        }
+        {
+          name: 'AzureWebJobsStorage'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${SA.name};AccountKey=${SA.listKeys().keys[0].value};EndpointSuffix=core.windows.net'
+        }
+        {
+          name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${SA.name};AccountKey=${SA.listKeys().keys[0].value};EndpointSuffix=core.windows.net'
+        }
+        {
+          name: 'WEBSITE_CONTENTSHARE'
+          value: toLower('${deployment}-${azureFunctionInfo.name}')
+        }
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~3'
+        }
+        {
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'custom' 
+        }
+      ]
       numberOfWorkers: 1
       acrUseManagedIdentityCreds: false
       alwaysOn: false
