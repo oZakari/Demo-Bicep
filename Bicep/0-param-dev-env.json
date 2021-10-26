@@ -103,7 +103,7 @@
                 "applicationInsightsInfo": [
                     {
                         "name": "ai",
-                        "la": "mfgt4-prod001-la"
+                        "la": "mfgt4-dev001-la"
                     }
                 ]
             }
