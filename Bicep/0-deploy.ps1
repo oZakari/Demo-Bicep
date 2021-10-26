@@ -1,4 +1,4 @@
-$rgname = 'SierraWireless-PoC-Prod'
+$rgname = 'SierraWireless-PoC-Dev'
 $region = 'West US 2'
 Write-Warning -Message "RG is: [$rgname] in Region: [$region]"
 

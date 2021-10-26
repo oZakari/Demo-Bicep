@@ -50,7 +50,25 @@
                     {
                         "name": "strg1",
                         "publicAccess": false,
-                        "skuName": "Standard_LRS"
+                        "skuName": "Standard_LRS",
+                        "containers": [
+                            {
+                              "name": "container1"
+                            }
+                        ],
+                        "fileshares": [
+                            {
+                              "name": "fileshare1"
+                            },
+                            {
+                              "name": "fileshare2"
+                            }
+                        ],
+                        "queues": [
+                            {
+                              "name": "queue1"
+                            }
+                        ] 
                     }
                 ],
                 "virtualNetworkInfo": [

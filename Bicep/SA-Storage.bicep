@@ -3,7 +3,11 @@ param global object
 
 var deployment = '${global.appName}${global.environment}'
 
-resource SA 'Microsoft.Storage/storageAccounts@2021-04-01' = {
+var fileshares = contains(storageInfo, 'fileshares') ? storageInfo.fileshares : []
+var containers = contains(storageInfo, 'containers') ? storageInfo.containers : []
+var queues = contains(storageInfo, 'queues') ? storageInfo.queues : []
+
+resource SA 'Microsoft.Storage/storageAccounts@2021-06-01' = {
   name: toLower('${deployment}${storageInfo.name}')
   location: resourceGroup().location
   sku: {
@@ -67,3 +71,27 @@ resource SATableService 'Microsoft.Storage/storageAccounts/tableServices@2021-04
   name: 'default'
   parent: SA
 }
+
+module SAContainers 'x.SAC.bicep' = [for (container, index) in containers : {
+  name: 'dp-storagedeploy-${storageInfo.name}-${container.name}'
+  params: {
+    SAName: SA.name
+    container: container
+  }
+}]
+
+module SAFileshares 'x.SAF.bicep' = [for (fileshare, index) in fileshares : {
+  name: 'dp-storagefilesharedeploy-${storageInfo.name}-${fileshare.name}'
+  params: {
+    SAName: SA.name
+    fileshare: fileshare
+  }
+}]
+
+module SAQueues 'x.SAQ.bicep' = [for (queue, index) in queues : {
+  name: 'dp-storagecontainerdeploy-${storageInfo.name}-${queue.name}'
+  params: {
+    SAName: SA.name
+    queue: queue
+  }
+}]

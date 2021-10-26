@@ -68,7 +68,6 @@ module AI 'AI.bicep' = if (stage.ai == 1) {
   ]
 }
 
-
 module LA 'LA.bicep' = if (stage.la == 1) {
   name: 'dp-la'
   params: {
