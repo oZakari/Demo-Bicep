@@ -57,17 +57,17 @@ resource SABlobService 'Microsoft.Storage/storageAccounts/blobServices@2021-02-0
   ]
 }
 
-resource SAFileService 'Microsoft.Storage/storageAccounts/fileServices@2021-04-01' existing = {
+resource SAFileService 'Microsoft.Storage/storageAccounts/fileServices@2021-04-01' = {
   name: 'default'
   parent: SA
 }
 
-resource SAQueueService 'Microsoft.Storage/storageAccounts/queueServices@2021-04-01' existing = {
+resource SAQueueService 'Microsoft.Storage/storageAccounts/queueServices@2021-04-01' = {
   name: 'default'
   parent: SA
 }
 
-resource SATableService 'Microsoft.Storage/storageAccounts/tableServices@2021-04-01' existing = {
+resource SATableService 'Microsoft.Storage/storageAccounts/tableServices@2021-04-01' = {
   name: 'default'
   parent: SA
 }
