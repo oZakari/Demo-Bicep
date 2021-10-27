@@ -56,6 +56,18 @@ module ASP 'ASP.bicep' = if (stage.asp == 1) {
   }
 }
 
+module AF 'AF.bicep' = if (stage.af == 1) {
+  name: 'dp-af'
+  params: {
+    deploymentInfo: deploymentInfo
+    stage: stage
+    global: global
+  }
+  dependsOn: [
+    ASP
+  ]
+}
+
 module AI 'AI.bicep' = if (stage.ai == 1) {
   name: 'dp-ai'
   params: {
@@ -67,7 +79,6 @@ module AI 'AI.bicep' = if (stage.ai == 1) {
     LA
   ]
 }
-
 
 module LA 'LA.bicep' = if (stage.la == 1) {
   name: 'dp-la'

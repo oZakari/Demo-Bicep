@@ -1,4 +1,4 @@
-$rgname = 'SierraWireless-PoC-Prod'
+$rgname = 'SierraWireless-PoC-Dev'
 $region = 'West US 2'
 Write-Warning -Message "RG is: [$rgname] in Region: [$region]"
 
@@ -33,6 +33,9 @@ New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\AZSQL
 
 # Deploy Single layer, inner dev loop - App Service Plan only
 New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\ASP.bicep
+
+# Deploy Single layer, inner dev loop - Azure Function only
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\AF.bicep
 
 # Deploy Single layer, inner dev loop - Log Analytics only
 New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\LA.bicep

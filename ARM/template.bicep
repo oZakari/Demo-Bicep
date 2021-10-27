@@ -17,31 +17,6 @@ param workspaces_DefaultWorkspace_38fef25a_a926_4719_8c80_de78ac6df0f7_WUS2_exte
 param virtualNetworks_AZUSW2_NVN_MXJBL_VNET01_externalid string = '/subscriptions/9307b47c-4f32-4c6b-84fe-1a50cb29107f/resourceGroups/SierraWirelessPoC/providers/Microsoft.Network/virtualNetworks/SierraWireless-VNet'
 param subnetName string = 'AZUSW2-NVM-MXJBL-Subnet01'
 
-resource networkInterfaces_mfgt4storageprivateendpoint_nic_c46a2cdf_5efc_4ec4_b454_565a53c8d6bf_name_resource 'Microsoft.Network/networkInterfaces@2020-11-01' = {
-  name: networkInterfaces_mfgt4storageprivateendpoint_nic_c46a2cdf_5efc_4ec4_b454_565a53c8d6bf_name
-  location: 'westus2'
-  properties: {
-    ipConfigurations: [
-      {
-        name: 'blob-blob.privateEndpoint'
-        properties: {
-          privateIPAddress: '10.107.141.5'
-          privateIPAllocationMethod: 'Dynamic'
-          subnet: {
-            id: '${virtualNetworks_AZUSW2_NVN_MXJBL_VNET01_externalid}/${subnetName}'
-          }
-          primary: true
-          privateIPAddressVersion: 'IPv4'
-        }
-      }
-    ]
-    dnsSettings: {
-      dnsServers: []
-    }
-    enableAcceleratedNetworking: false
-    enableIPForwarding: false
-  }
-}
 
 resource components_mfgt_func_app_unzip_blob_dev001_name_degradationindependencyduration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
   parent: components_mfgt_func_app_unzip_blob_dev001_name_resource
@@ -1264,20 +1239,6 @@ resource metricAlerts_Function_app_Data_in_name_resource 'microsoft.insights/met
   }
 }
 
-resource privateEndpoints_mfgt4storageprivateendpoint_name_default 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2020-11-01' = {
-  parent: privateEndpoints_mfgt4storageprivateendpoint_name_resource
-  name: 'default'
-  properties: {
-    privateDnsZoneConfigs: [
-      {
-        name: 'privatelink-blob-core-windows-net'
-        properties: {
-          privateDnsZoneId: privateDnsZones_privatelink_blob_core_windows_net_name_resource.id
-        }
-      }
-    ]
-  }
-}
 
 resource servers_mfgt_sql_server_dev001_name_mfgt_db_production_CreateIndex 'Microsoft.Sql/servers/databases/advisors@2014-04-01' = {
   parent: servers_mfgt_sql_server_dev001_name_mfgt_db_production
