@@ -88,3 +88,15 @@ module LA 'LA.bicep' = if (stage.la == 1) {
     global: global
   }
 }
+
+module CA 'CA.bicep' = if (stage.ca == 1) {
+  name: 'dp-ca'
+  params: {
+    deploymentInfo: deploymentInfo
+    stage: stage
+    global: global
+  }
+  dependsOn: [
+    AF
+  ]
+}
