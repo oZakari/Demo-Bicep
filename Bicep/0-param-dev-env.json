@@ -6,13 +6,14 @@
             "value": {
                 "ag": 1,
                 "sa": 1,
-                "vn": 1,
-                "nsg": 1,
+                "vn": 0,
+                "nsg": 0,
                 "azsql": 1,
                 "asp": 1,
                 "af": 1,
                 "la": 1,
-                "ai": 1
+                "ai": 1,
+                "ca": 1
             }
         },
         "Global": {
@@ -113,6 +114,14 @@
                     {
                         "name": "ai",
                         "la": "mfgt4-dev001-la"
+                    }
+                ],
+                "customAlertInfo": [
+                    {
+                        "name": "ca",
+                        "af": "mfgt4-dev001-af",
+                        "ag": "mfgt4-dev001-ag",
+                        "ai": "mfgt4-dev001-ai"
                     }
                 ]
             }
