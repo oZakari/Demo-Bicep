@@ -73,7 +73,7 @@ resource SATableService 'Microsoft.Storage/storageAccounts/tableServices@2021-04
 }
 
 module SAContainers 'x.SAC.bicep' = [for (container, index) in containers : {
-  name: 'dp-storagedeploy-${storageInfo.name}-${container.name}'
+  name: 'dp-storagecontainerdeploy-${storageInfo.name}-${container.name}'
   params: {
     SAName: SA.name
     container: container
@@ -89,7 +89,7 @@ module SAFileshares 'x.SAF.bicep' = [for (fileshare, index) in fileshares : {
 }]
 
 module SAQueues 'x.SAQ.bicep' = [for (queue, index) in queues : {
-  name: 'dp-storagecontainerdeploy-${storageInfo.name}-${queue.name}'
+  name: 'dp-storagequeuedeploy-${storageInfo.name}-${queue.name}'
   params: {
     SAName: SA.name
     queue: queue
