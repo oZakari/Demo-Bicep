@@ -13,7 +13,8 @@
                 "af": 1,
                 "la": 1,
                 "ai": 1,
-                "ca": 1
+                "ca": 1,
+                "aa": 1
             }
         },
         "Global": {
@@ -89,7 +90,14 @@
                     {
                         "name": "azsql",
                         "adminLogin": "SQLSA",
-                        "adminPw": "Testing1@1"
+                        "adminPw": "Testing1@1",
+                        "allowedips": [
+                            {
+                                "name": "Office",
+                                "startip": "10.0.0.0",
+                                "endip": "10.0.0.0"
+                            }
+                        ]
                     }
                 ],
                 "appServicePlanInfo": [
@@ -122,6 +130,11 @@
                         "af": "mfgt4-dev001-af",
                         "ag": "mfgt4-dev001-ag",
                         "ai": "mfgt4-dev001-ai"
+                    }
+                ],
+                "automationAccountInfo": [
+                    {
+                        "name": "aa"
                     }
                 ]
             }

@@ -45,3 +45,6 @@ New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\AI.bi
 
 # Deploy Single layer, inner dev loop - Custom alert only
 New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\CA.bicep
+
+# Deploy Single layer, inner dev loop - Automation account only
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\AA.bicep
